@@ -1,0 +1,31 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        },
+        "useBuiltIns": "usage",
+        "corejs": "3.6.5"
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "@config": "./dist/config",
+          "@Routes": "./dist/routes",
+          "@Controllers": "./dist/controllers",
+          "@Models": "./dist/models",
+          "@Services": "./dist/services",
+          "@BaseController": "./dist/controllers/baseController.js",
+          "@BaseService": "./dist/services/baseService.js"
+        }
+      }
+    ]
+  ]
+}

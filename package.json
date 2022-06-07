@@ -1,0 +1,68 @@
+{
+  "name": "todoes6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "npx husky install",
+    "build": "npx babel src --out-dir dist",
+    "start": "npm run build && nodemon dist/index",
+    "git:add": "git add -A",
+    "git:commit": "cz",
+    "migrate": "npx knex migrate:latest --knexfile src/config/knexfile.js",
+    "migrate:latest": "npm run migrate",
+    "migrate:make": "npx knex migrate:make --knexfile src/config/knexfile.js",
+    "migrate:rollback": "npx knex migrate:rollback --knexfile src/config/knexfile.js",
+    "migrate:rollback:all": "npx knex migrate:rollback --all --knexfile src/config/knexfile.js",
+    "migrate:list": "npx knex migrate:list --knexfile src/config/knexfile.js",
+    "seed:run": "npx knex seed:run --knexfile src/config/knexfile.js",
+    "seed:make": "npx knex seed:make --knexfile src/config/knexfile.js",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint:check": "npx eslint .",
+    "lint:fix": "npx eslint --fix ."
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@config": "./src/config",
+    "@Routes": "./src/routes",
+    "@Controllers": "./src/controllers",
+    "@Models": "./src/models",
+    "@Services": "./src/services",
+    "@BaseController": "./src/controllers/baseController.js",
+    "@BaseService": "./src/services/baseService.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "cz-conventional-changelog": "^3.0.1",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.6.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "bookshelf": "^1.2.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "http-errors": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.21.21",
+    "module-alias": "^2.2.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.16"
+  }
+}
